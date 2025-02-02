@@ -118,39 +118,3 @@ export interface ListingEntry {
   pinned?: boolean,
 }
 
-const listings: { [key: number]: ListingEntry | undefined } = {
-  1: { id: 1, user: "someUser", info: "Buy Milk", categoryIndex: 0, pinned: true },
-  2: { id: 2, user: "myUser", info: "Do something cool", categoryIndex: 1, pinned: false },
-};
-
-export async function listingData(): Promise<ListingsResult> {
-  return {
-    result: {
-      categories: [
-        { key: "inProgress", index: 0, name: "In Progress", count: 2 },
-        { key: "finished", index: 1, name: "Finished", count: 1 }
-      ],
-      listings: Object.values(listings)
-    }
-  }
-}
-
-let nextId = 2;
-
-export async function createListing(info: string, user: string) {
-  nextId += 1;
-  const id = nextId;
-  listings[id] = { id, user, info, categoryIndex: 0 }
-}
-
-export async function addPin(id: number) {
-  const entry = listings[id]
-  if (!entry) return
-  entry.pinned = true;
-}
-
-export async function removePin(id: number) {
-  const entry = listings[id];
-  if (!entry) return;
-  entry.pinned = false;
-}

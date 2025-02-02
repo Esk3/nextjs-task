@@ -1,5 +1,5 @@
 "use client"
-import { removePin } from "@/lib/data/memoryDb";
+import { removePin } from "@/lib/data/localstoreage";
 import { useState } from "react";
 import style from "./pin.module.css";
 import { redirect } from "next/dist/client/components/navigation";

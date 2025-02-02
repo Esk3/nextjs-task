@@ -1,5 +1,5 @@
 "use client"
-import { createListing } from "@/lib/data/memoryDb";
+import { createListing } from "@/lib/data/localstoreage";
 import { redirect } from "next/navigation";
 import { useState } from "react"
 
@@ -10,9 +10,9 @@ export default function CreateForm({ }) {
     <button onClick={() => {
       setShow(false);
     }}>Cancel</button>
-    <form onSubmit={async e => {
+    <form onSubmit={e => {
       e.preventDefault();
-      await createListing(e.target.info.value, "todoUser");
+      createListing(e.target.info.value, "todoUser");
       redirect("/tasks");
     }}>
       <input type="text" name="info" placeholder="message" autoComplete="off" />

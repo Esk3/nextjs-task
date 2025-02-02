@@ -1,9 +1,10 @@
-import { listingData, } from "@/lib/data/memoryDb";
+"use client"
 import style from "./page.module.css";
 import Body from "./Body";
+import { listingData } from "@/lib/data/localstoreage";
 
-export default async function Page({ }) {
-  const data = (await listingData()).result;
+export default function Page({ }) {
+  const data = listingData().result;
   return <div className={style.main}>
     <h2>Pinned</h2>
     <hr />

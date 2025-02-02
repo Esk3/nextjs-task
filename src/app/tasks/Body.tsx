@@ -1,3 +1,4 @@
+"use client"
 import Pins from "@/lib/components/listing/Pins";
 import { Listings } from "@/lib/data/memoryDb";
 import CreateForm from "./CreateForm";

@@ -18,19 +18,16 @@ export function listingData(): ListingsResult {
         { key: "inProgress", index: 0, name: "In Progress", count: 2 },
         { key: "finished", index: 1, name: "Finished", count: 1 }
       ],
-      listings: Object.values(getTasks())
+      listings: Object.values(getTasks()).reverse()
     }
   }
 }
 
-let nextId = 0;
-
 export function createListing(info: string, user: string) {
-  const id = nextId;
   const listings = getTasks();
+  const id = listings.length;
   listings[id] = { id, user, info, categoryIndex: 0 }
   setTasks(listings);
-  nextId += 1;
 }
 
 export function addPin(id: number) {

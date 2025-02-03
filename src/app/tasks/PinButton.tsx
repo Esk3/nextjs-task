@@ -1,13 +1,14 @@
 "use client"
 
 import { addPin, removePin } from "@/lib/data/localstoreage";
-import { redirect } from "next/dist/client/components/navigation";
+import { useRouter } from "next/navigation";
 
 export default function PinButton({ listingId, pinned }: { listingId: number; pinned: boolean }) {
+  const router = useRouter();
   if (pinned) return <button onClick={() => removePin(listingId)}>unpin</button>
   return <button onClick={() => {
     addPin(listingId);
-    redirect("/tasks");
+    router.refresh();
   }}>pin</button>
 }
 

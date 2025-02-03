@@ -16,7 +16,7 @@ export default async function Home() {
 }
 
 function Counts({ categories, categoryData }: DashResult) {
-  return <ul className="flex-row">
+  return <ul className={[style.overview, "flex-row"].join(" ")}>
     {categories.map(category => <li key={category} className={style.count}>{category}: {categoryData[category].count}</li>)}
   </ul>
 }
@@ -25,7 +25,7 @@ function HeaderList({ data }: { data: DashResult }) {
   return <ul className={style["header-list"]}>{data.categories.map(category => {
     return <li key={category} className={style.header}> <details >
       <summary>{category}: {data.categoryData[category].count}</summary>
-      <ul>{data.categoryData[category].data.map(data => {
+      <ul className={style["details-list"]}>{data.categoryData[category].data.map(data => {
         return <li key={data.info.slice(0, 10)}>
           <Link href={"/tasks#" + data.id}>{data.info.slice(0, 10) + (data.info.length > 10 ? "..." : "")}</Link>
         </li>

@@ -4,6 +4,10 @@
   border-radius: 8px;
 }
 
+.overview {
+  list-style: none;
+}
+
 .header-list {
   display: flex;
   flex-direction: column;
@@ -22,6 +26,11 @@
     cursor: pointer;
     user-select: none;
   }
+}
+
+.details-list {
+  list-style: none;
+  padding-left: 1em;
 }
 
 .main {

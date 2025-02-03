@@ -1,0 +1,16 @@
+.main {
+  display: grid;
+  grid-template-columns: 4em 1fr;
+  grid-template-rows: repeat(2, 1fr);
+
+  align-items: center;
+
+  &>p {
+    grid-row: 1/span 2;
+  }
+
+  &>button {
+    margin: 2px;
+    padding: 2px;
+  }
+}
